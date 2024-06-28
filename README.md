@@ -1,3 +1,11 @@
+<div align=center>
+       <a href="https://itaha.fun/">
+              <img src="[https://user-images.githubusercontent.com/48678280/174642913-baa71a47-0edc-4678-a532-a3b9099dfb6d.png](https://ibb.co/mRPK6b5)" alt="Logo">
+       </a>
+
+<br>
+</div>
+
 # Azkar - Tasbeeh
 إضافة تساعدك على التسبيح وحفظ الأذكار الإسلامية بعد كل فترة زمنية محددة. تتيح لك هذه الإضافة إمكانية تحديد الوقت للأذكار وعرضها كإشعارات، مما يسهل عليك البقاء متصلًا بذكر الله في حياتك اليومية أثناء استخدام متصفحك.
 <br>
