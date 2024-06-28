@@ -1,6 +1,6 @@
 <div align=center>
        <a href="https://itaha.fun/">
-              <img src="[https://user-images.githubusercontent.com/48678280/174642913-baa71a47-0edc-4678-a532-a3b9099dfb6d.png](https://ibb.co/mRPK6b5)" alt="Logo">
+              <img src="https://github.com/irealsamurai/Azkar---Tasbeeh/assets/64831621/1fa99b6c-825f-4356-888b-f203af06c974" alt="Logo"> 
        </a>
 
 <br>
