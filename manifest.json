@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "فَذَكِّرْ إِنْ نَفَعَتِ الذِّكْرَى",
+    "version": "1.0",
+    "description": "تسبيح وأذكار.",
+    "permissions": ["notifications", "storage"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon16.png",
+            "128": "icon16.png"
+        },
+        "default_title": "Tasbeeh, azkar"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["azkar.txt"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}

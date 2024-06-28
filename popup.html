@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أذكار وتسبيح.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+        html {
+            overflow: hidden;
+        }
+        body {
+            color: black;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            padding: 20px;
+            width: 300px;
+            background: white;
+            height: 400px;
+            position: relative;
+        }
+        label {
+            overflow: hidden;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+    height: 22px;
+    border-radius: 5px;
+    background: rgb(252, 252, 253);
+    color: rgb(26, 29, 33);
+    width: 42px;
+    font-family: unset;
+    padding: 1px 0px 1px 5px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid rgb(232, 234, 237);
+    overflow: hidden;
+}
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #notification {
+            overflow: hidden;
+            display: none;
+            position: absolute; 
+            top: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            padding: 10px 20px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            font-family: rubik;
+            border: 1px solid #d6e9c6;
+            border-radius: 50px;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeInOut 1s ease-out forwards, fadeOut 1s ease-out 10s forwards; 
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+        #tasbeeh-container {
+            overflow: hidden;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #tasbeeh-count {
+    overflow: hidden;
+    font-size: 24px;
+    margin: 10px 0px 0px 0px;
+}
+        button {
+    overflow: hidden;
+    padding: 10px 20px;
+    font-family: rubik;
+    border-radius: 9px;
+    cursor: pointer;
+    background: rgb(97, 47, 255);
+    font-size: 16px;
+    transition: transform 0.2s ease;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+        button:hover {
+            transform: scale(0.95); 
+        }
+
+        .one-title {
+            font-family: rubik;
+            text-align: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(232, 234, 237);
+    transition: .4s;
+    border-radius: 24px;
+}
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 1px;
+            bottom: 1px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="one-title">فَذَكِّرْ إِنْ نَفَعَتِ الذِّكْرَى</h1>
+    <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: row-reverse; justify-content: space-between; font-family: rubik;">
+            إشعارات الأذكار
+            <label class="switch"> 
+                <input type="checkbox" id="enableNotifications">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <label style="display: flex; flex-direction: row-reverse; justify-content: space-between; font-family: rubik;">
+            الانتظار بين الاذكار (بالثواني)<input type="number" id="notificationInterval" min="1" value="10">
+        </label>
+        <div style="
+            unicode-bidi: plaintext;
+            text-align: left;
+            font-family: 'Rubik';
+        " id="minutesMessage"></div>
+        <div id="minutesMessage" style="text-align: center; font-family: rubik; color: #ccc; margin-top: 10px;"></div>
+        <button id="saveSettings">حفظ التغييرات</button>
+    </div>
+    <style>
+    .custom-hr {
+    border: 0;
+    height: .1px;
+    width: 175px;
+    background: #18181814;
+    margin: 15px auto;}
+    #reset-counter {
+    padding: 3px 6px 5px 6px;
+    margin: 0;
+    border: none;
+    transition: none;
+    background: rgb(232, 234, 237);
+    color: black;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 6px;
+    animation: none;
+}
+#reset-counter:hover{
+    animation: none !important;
+    transform: none !important;
+}
+    </style>
+
+    <hr class="custom-hr">
+    <div id="notification">تم حفظ التغييرات <i class="fa fa-check" aria-hidden="true"></i></div>
+    <div id="tasbeeh-container">
+        <div>
+            <div style="
+                font-size: 18px;
+                margin-bottom: 10px;
+                font-family: 'Rubik';
+            " id="tasbeeh-message"></div>
+            <button style=" 
+                height: 130px;
+                width: 130px;
+                border-radius: 84px;
+                background: linear-gradient(100deg, #612fff 0%, hsl(257deg 38.92% 12.98%) 100%);
+                border: none;
+                color: white;
+                height: 130px;
+                width: 130px;
+                border-radius: 84px;" id="tasbeeh-button">سبحان الله
+            <div id="tasbeeh-count">0</div></button>
+        <span style="
+            display: flex;
+            font-family: rubik;
+            flex-direction: row-reverse;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            margin-top: 13px;
+        ">هل تريد تصفير العداد؟ <button id="reset-counter">تصفير العداد</button></span>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
